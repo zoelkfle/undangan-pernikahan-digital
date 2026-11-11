@@ -17,9 +17,9 @@ p{font-size:1.08em}
 section{padding:72px 22px;max-width:680px;margin:0 auto;position:relative}
 h2{font-family:'Pinyon Script',cursive;font-weight:400;font-size:2.9rem;margin:0 0 14px;color:var(--maroon)}
 .frame{position:relative;border:1px solid var(--line);border-radius:6px;background:var(--card);padding:34px 22px;overflow:hidden}
-.art{position:absolute;pointer-events:none;width:150px;height:150px;z-index:0;filter:saturate(.95) contrast(1.05);opacity:.96}
+.art{position:absolute;pointer-events:none;width:150px;height:150px;z-index:0;filter:saturate(.95) contrast(1.05);opacity:.96;--mx:0px;--my:0px;transition:transform .35s ease-out}
 .art use{display:inline}
-.art.tl-{top:-8px;left:-8px}.art.br-{bottom:-8px;right:-8px;transform:rotate(180deg)}.art.tr-{top:-8px;right:-8px;transform:scaleX(-1)}.art.bl-{bottom:-8px;left:-8px;transform:scaleY(-1)}
+.art.tl-{top:-8px;left:-8px;transform:translate(var(--mx),var(--my))}.art.br-{bottom:-8px;right:-8px;transform:translate(var(--mx),var(--my)) rotate(180deg)}.art.tr-{top:-8px;right:-8px;transform:translate(var(--mx),var(--my)) scaleX(-1)}.art.bl-{bottom:-8px;left:-8px;transform:translate(var(--mx),var(--my)) scaleY(-1)}
 .frame>*:not(.art){position:relative;z-index:1}
 .ra{--r1:#7a1f35;--r2:#b34a60}.rg{--r1:#d2a366;--r2:#f3dcae}.rb{--r1:#a53048;--r2:#dc8f9d}
 .forest{display:block;width:100%;max-width:680px;height:auto;margin:0 auto;color:#b98a4e;opacity:.75}
@@ -41,7 +41,7 @@ h2{font-family:'Pinyon Script',cursive;font-weight:400;font-size:2.9rem;margin:0
 .names{font-size:3.8rem;line-height:1.05;margin:8px 0}
 .amp{font-size:2.2rem;color:var(--gold)}
 .btn{display:inline-block;border:1px solid var(--maroon);background:var(--maroon);color:#fbf3e8;font:600 1rem 'Cormorant Garamond',serif;letter-spacing:.12em;padding:12px 28px;border-radius:40px;cursor:pointer;text-decoration:none;transition:transform .2s,background .2s}
-.btn:hover{transform:translateY(-2px)}.btn:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.btn:hover{transform:translateY(-2px)}.btn:active{transform:translateY(1px) scale(.98)}.btn:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
 .btn.ghost{background:transparent;color:var(--maroon)}
 :root[data-theme="dark"] .btn,:root:not([data-theme="light"]) .btn{color:#2a0d16}
 @media (prefers-color-scheme:light){:root:not([data-theme="dark"]) .btn{color:#fbf3e8}}
@@ -67,6 +67,10 @@ h2{font-family:'Pinyon Script',cursive;font-weight:400;font-size:2.9rem;margin:0
 .event-date{margin-top:0;text-align:center}
 .venue{margin-top:24px}.venue b{display:block;font-size:1.45rem;color:var(--maroon)}
 .acts{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:18px}.acts .btn.ghost{color:#ffe8d6;border-color:var(--gold)}
+#waGift{background:var(--maroon);border-color:var(--maroon);color:#2a0d16!important;opacity:1;display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:700;box-shadow:none}
+.wa-icon{width:1.15em;height:1.15em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}
+:root[data-theme="light"] #waGift{color:#fbf3e8!important}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]) #waGift{color:#fbf3e8!important}}
 /* story timeline */
 .tl{margin:20px auto 0;text-align:left;border-left:2px solid var(--gold);padding-left:20px;max-width:460px}
 .tl details{margin:0 0 14px;cursor:pointer}.tl summary{font-weight:600;color:var(--maroon);font-size:1.15rem}
@@ -84,14 +88,13 @@ input,textarea,select{width:100%;font:inherit;font-size:1rem;padding:10px 12px;b
 .wish{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--maroon);border-radius:8px;padding:10px 14px}
 .wish b{color:var(--maroon)}.wish small{display:block;color:var(--gold);font-size:1rem}.wish p{margin:4px 0 0;font-size:1.08rem}
 .msg{min-height:1.4em;font-weight:600;color:var(--maroon);text-align:center}
-.rsvp-heading{position:relative!important;z-index:3!important;display:inline-block;margin:0 0 10px 18px;font-size:2.35rem;transform:translate(28px,-10px);text-shadow:0 2px 6px #16080d}
+.rsvp-heading{position:relative!important;z-index:3!important;display:inline-block;margin:0 0 10px 18px;font-size:2.2rem;transform:translate(28px,-10px);text-shadow:0 2px 6px #16080d}
+.gift-heading{display:block;text-align:left;transform:translateX(-8px)}
 footer{padding:50px 22px 90px;font-size:1rem}
 #music{position:fixed;right:14px;bottom:calc(74px + env(safe-area-inset-bottom,0px));z-index:40;width:46px;height:46px;border-radius:50%;border:1px solid var(--gold);background:var(--maroon);color:#fbf3e8;font-size:1.2rem;cursor:pointer;box-shadow:0 8px 24px rgba(0,0,0,.35)}
 #music.spin{animation:sp 6s linear infinite}@keyframes sp{to{transform:rotate(360deg)}}
-.rv{opacity:0;transform:translateY(18px);transition:opacity .8s,transform .8s}.rv.in{opacity:1;transform:none}
-.wipe{position:relative;opacity:0;clip-path:inset(0 100% 0 0);transform:translateX(-18px)}
-.wipe.in{opacity:1;clip-path:inset(0 0 0 0);transform:none;transition:opacity .25s ease,transform .7s ease,clip-path 1s cubic-bezier(.77,0,.18,1)}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv,.wipe{opacity:1;clip-path:none;transform:none}}
+.rv{opacity:0;transform:translateY(18px);transition:opacity .8s,transform .8s}.rv.in{opacity:1;transform:none}.frame.rv.in{transition-delay:.08s}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
 @media(max-width:520px){
   html,body{overflow-x:hidden}
   body{font-size:18px}
@@ -102,7 +105,7 @@ footer{padding:50px 22px 90px;font-size:1rem}
   #hero .names{font-size:clamp(3rem,15vw,4.4rem)!important}
   .person .nm{font-size:clamp(2.45rem,11vw,3.05rem)}
   h2{font-size:2.8rem}
-  .rsvp-heading{font-size:2.1rem;margin-left:12px;transform:translate(35px,-3px)}
+  .rsvp-heading{font-size:2rem;margin-left:12px;transform:translate(35px,-3px)}
   .date{font-size:1rem;letter-spacing:.1em}
   .count{gap:6px}
   .count div{padding:8px 2px}
@@ -180,7 +183,7 @@ footer{padding:50px 22px 90px;font-size:1rem}
 
 <section id="acara">
   <div class="rv">
-    <h2 class="wipe">Waktu &amp; Tempat</h2>
+    <h2 class="rv">Waktu &amp; Tempat</h2>
     <p>Insya Allah akan diselenggarakan pada:</p>
     <div class="big">30</div><div class="date event-date">SENIN · NOVEMBER 2026</div>
     <div class="ev">
@@ -198,9 +201,12 @@ footer{padding:50px 22px 90px;font-size:1rem}
 <section id="hadiah">
   <div class="frame rv">
     <svg class="art tr-" viewBox="0 0 220 220" aria-hidden="true"><use href="#corner"/></svg><svg class="art bl-" viewBox="0 0 220 220" aria-hidden="true"><use href="#corner"/></svg>
-    <h2 class="wipe">Kirim Hadiah</h2>
+    <h2 class="rv gift-heading">Kirim Hadiah</h2>
     <p>Doa restu Anda sudah sangat berarti bagi kami. Jika ingin memberikan tanda kasih, dapat melalui rekening keluarga mempelai.</p>
     <div id="giftBox"></div>
+    <div class="acts">
+      <a class="btn ghost" id="waGift" target="_blank" rel="noopener" href="https://wa.me/628881905695"><svg class="wa-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L4 20l1.2-3.7A8.5 8.5 0 1 1 20.5 11.5Z"/><path d="M8.8 8.3c.3-.4.7-.4 1-.1l1 1.3c.2.3.2.6 0 .9l-.5.6c.6 1.2 1.5 2.1 2.7 2.7l.6-.5c.3-.2.6-.2.9 0l1.3 1c.3.3.3.7-.1 1-.4.4-1 .6-1.6.5-2.9-.5-5.8-3.4-6.3-6.3-.1-.6.1-1.2.5-1.6Z"/></svg>Konfirmasi WhatsApp</a>
+    </div>
   </div>
 </section>
 
@@ -228,6 +234,31 @@ footer{padding:50px 22px 90px;font-size:1rem}
   <span class="orn">❖</span>
 </footer>
 
+<script>
+  // Animasi UI berdiri sendiri agar tidak bergantung pada koneksi Firebase.
+  (function(){
+    function reveal(){
+      var elements=document.querySelectorAll('.rv');
+      if('IntersectionObserver' in window){
+        var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('in');observer.unobserve(entry.target)}})},{threshold:.15});
+        elements.forEach(function(element){observer.observe(element)});
+      }else{
+        elements.forEach(function(element){element.classList.add('in')});
+      }
+    }
+    function parallax(){
+      if(window.matchMedia('(prefers-reduced-motion: reduce)').matches || !window.matchMedia('(pointer: fine)').matches)return;
+      var ornaments=document.querySelectorAll('.art');
+      document.addEventListener('pointermove',function(event){
+        var x=(event.clientX/window.innerWidth-.5)*8;
+        var y=(event.clientY/window.innerHeight-.5)*8;
+        ornaments.forEach(function(element,index){var depth=1+(index%3)*.18;element.style.setProperty('--mx',(x*depth).toFixed(2)+'px');element.style.setProperty('--my',(y*depth).toFixed(2)+'px')});
+      },{passive:true});
+    }
+    reveal();
+    parallax();
+  })();
+</script>
 <script type="module">
   // Impor modul Firebase dari CDN
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
@@ -308,6 +339,11 @@ footer{padding:50px 22px 90px;font-size:1rem}
     let t=ACCOUNTS[b.dataset.i].no;
     try{navigator.clipboard.writeText(t).then(function(){b.textContent='Tersalin'},function(){b.textContent='Salin manual'})}catch(x){b.textContent='Salin manual'}
   };
+  $('waGift').onclick=function(){
+    let nama=$('n').value.trim()||'(nama Anda)';
+    let pesan='Halo, saya '+nama+' telah mengirim hadiah melalui rekening BCA. Bukti transfer saya lampirkan pada pesan ini. Terima kasih.';
+    this.href='https://wa.me/628881905695?text='+encodeURIComponent(pesan);
+  };
   document.body.style.overflow='hidden';
 
   // Countdown
@@ -318,15 +354,6 @@ footer{padding:50px 22px 90px;font-size:1rem}
     $('m').textContent=Math.floor(t%36e5/6e4);$('s').textContent=Math.floor(t%6e4/1e3);
   }
   tick();setInterval(tick,1000);
-
-  // Animasi Muncul
-  if('IntersectionObserver' in window){
-    let io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15});
-    document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
-    document.querySelectorAll('.wipe').forEach(function(el){io.observe(el)});
-  }else{
-    document.querySelectorAll('.rv,.wipe').forEach(function(el){el.classList.add('in')});
-  }
 
   // Musik Memories piano version dari berkas lokal.
   const musicAudio=new Audio('src/Nostalgic%20One%20Piece%20Ending%20Theme%20-%20Memories%E3%80%90%20Piano%20%E3%83%94%E3%82%A2%E3%83%8E%20%E3%80%91Episode%20808.mp3');
