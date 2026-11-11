@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Undangan Pernikahan Tara &amp; Riza</title>
+<link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#16080d;--bg2:#4a1425;--ink:#f4dfcf;--maroon:#d8ab70;--gold:#d8ab70;--card:#35131f;--line:#9b6858;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#2a0d16;--bg2:#3a111e;--ink:#f1dcc0;--maroon:#d8ab70;--gold:#d8ab70;--card:#3d1722;--line:#7a5030}}
+:root[data-theme="dark"]{--bg:#2a0d16;--bg2:#3a111e;--ink:#f1dcc0;--maroon:#d8ab70;--gold:#d8ab70;--card:#3d1722;--line:#7a5030}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:linear-gradient(145deg,#100509 0%,#2a0b15 34%,#641a2d 72%,#16070d 100%);background-attachment:fixed;color:var(--ink);font-family:'Cormorant Garamond',Georgia,serif;font-size:20px;line-height:1.6;text-align:center}
+p{font-size:1.08em}
+.script{font-family:'Pinyon Script','Snell Roundhand',cursive;font-weight:400;color:var(--maroon)}
+section{padding:72px 22px;max-width:680px;margin:0 auto;position:relative}
+h2{font-family:'Pinyon Script',cursive;font-weight:400;font-size:2.9rem;margin:0 0 14px;color:var(--maroon)}
+.frame{position:relative;border:1px solid var(--line);border-radius:6px;background:var(--card);padding:34px 22px;overflow:hidden}
+.art{position:absolute;pointer-events:none;width:150px;height:150px;z-index:0}
+.art.tl-{top:-8px;left:-8px}.art.br-{bottom:-8px;right:-8px;transform:rotate(180deg)}.art.tr-{top:-8px;right:-8px;transform:scaleX(-1)}.art.bl-{bottom:-8px;left:-8px;transform:scaleY(-1)}
+.frame>*:not(.art){position:relative;z-index:1}
+.ra{--r1:#7a1f35;--r2:#b34a60}.rg{--r1:#d2a366;--r2:#f3dcae}.rb{--r1:#a53048;--r2:#dc8f9d}
+.forest{display:block;width:100%;max-width:680px;height:auto;margin:0 auto;color:#b98a4e;opacity:.75}
+#cover .forest{position:absolute;left:0;right:0;bottom:0;max-width:none;pointer-events:none}
+#cover>*:not(.art):not(.forest){position:relative;z-index:1}
+.orn{display:block;margin:10px auto;color:var(--gold);letter-spacing:.5em;font-size:.8rem}
+/* cover */
+#cover{position:fixed;inset:0;z-index:50;background:radial-gradient(ellipse at 50% 0,var(--bg2),var(--bg) 70%);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:calc(24px + env(safe-area-inset-top,0px)) 24px calc(24px + env(safe-area-inset-bottom,0px));transition:transform 1.1s cubic-bezier(.7,0,.2,1),opacity 1.1s}
+#cover.open{transform:translateY(-100%);opacity:0;pointer-events:none}
+#cover .art{width:min(230px,52vw);height:min(230px,52vw)}
+.err{min-height:1.3em;font-size:.95rem;font-weight:600;color:#b3261e;margin:6px 0 10px}
+:root[data-theme="dark"] .err{color:#ffb4ab}
+.acc{margin:12px auto 0;max-width:420px;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:14px 16px;text-align:left}
+.acc b{color:var(--maroon)}.acc .no{font-size:1.5rem;font-weight:600;letter-spacing:.06em;margin:2px 0 8px;word-break:break-all}.acc .btn.ghost{color:#ffe8d6!important;border-color:var(--gold)}
+.btn.sm{padding:6px 16px;font-size:.9rem}
+#giftBox{margin-top:16px}
+.mono{font-size:5.6rem;line-height:1;margin:4px 0}
+.small{font-size:.95rem;letter-spacing:.22em}
+.names{font-size:3.8rem;line-height:1.05;margin:8px 0}
+.amp{font-size:2.2rem;color:var(--gold)}
+.btn{display:inline-block;border:1px solid var(--maroon);background:var(--maroon);color:#fbf3e8;font:600 1rem 'Cormorant Garamond',serif;letter-spacing:.12em;padding:12px 28px;border-radius:40px;cursor:pointer;text-decoration:none;transition:transform .2s,background .2s}
+.btn:hover{transform:translateY(-2px)}.btn:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.btn.ghost{background:transparent;color:var(--maroon)}
+:root[data-theme="dark"] .btn,:root:not([data-theme="light"]) .btn{color:#2a0d16}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]) .btn{color:#fbf3e8}}
+.guest{margin:18px 0 6px;font-size:1.1rem}
+.guest input{display:block;margin:8px auto 0;width:min(280px,80%);text-align:center;font:inherit;border:0;border-bottom:1px solid var(--gold);background:transparent;color:var(--ink);padding:4px}
+/* hero */
+#hero{padding-top:90px}
+.date{font-size:1.25rem;letter-spacing:.18em;margin-top:10px}
+.count{display:flex;gap:10px;justify-content:center;margin-top:26px;flex-wrap:wrap}
+.count div{flex:1 1 58px;min-width:58px;border:1px solid var(--line);background:var(--card);border-radius:8px;padding:10px 4px}
+.count b{display:block;font-size:1.9rem;font-weight:600;color:var(--maroon);line-height:1.1}
+.count span{font-size:.8rem}
+/* couple */
+.person{margin:26px 0}.person .nm{font-size:3.05rem;line-height:1.1}.person p{margin:2px 0}
+.dengan{font-style:italic;color:var(--gold);font-size:1.3rem}
+.ayat{font-style:italic;font-size:1.15rem}
+/* events */
+.ev{display:flex;flex-wrap:wrap;gap:14px;margin-top:20px}
+.ev .card{flex:1 1 240px;min-width:0}
+.ev .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:22px 14px}
+.ev h3{margin:0 0 4px;font-size:1.4rem;color:var(--maroon)}
+.big{font-size:3.4rem;line-height:1;color:var(--maroon);font-weight:600;margin-bottom:4px}
+.event-date{margin-top:0;text-align:center}
+.venue{margin-top:24px}.venue b{display:block;font-size:1.45rem;color:var(--maroon)}
+.acts{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:18px}.acts .btn.ghost{color:#ffe8d6;border-color:var(--gold)}
+/* story timeline */
+.tl{margin:20px auto 0;text-align:left;border-left:2px solid var(--gold);padding-left:20px;max-width:460px}
+.tl details{margin:0 0 14px;cursor:pointer}.tl summary{font-weight:600;color:var(--maroon);font-size:1.15rem}
+.tl p{margin:6px 0 0;font-size:1rem}
+/* gallery motif */
+.gal{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.gal div{flex:1 1 calc(33.333% - 8px);min-width:0;aspect-ratio:3/4;border-radius:8px;background:linear-gradient(160deg,var(--maroon),#b98a4e);opacity:.85;display:flex;align-items:center;justify-content:center;color:#fbf3e8;font-family:'Pinyon Script',cursive;font-size:1.6rem;cursor:pointer;transition:transform .3s}
+.gal div:nth-child(2n){background:linear-gradient(200deg,#b98a4e,#7a1f35)}
+.gal div:hover,.gal div.on{transform:scale(1.05) rotate(-1.5deg)}
+/* forms */
+form{display:grid;gap:12px;text-align:left;margin-top:18px}
+label{font-size:.95rem;font-weight:600}
+input,textarea,select{width:100%;font:inherit;font-size:1rem;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink)}
+.wishes{margin-top:26px;display:grid;gap:10px;text-align:left}
+.wish{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--maroon);border-radius:8px;padding:10px 14px}
+.wish b{color:var(--maroon)}.wish small{display:block;color:var(--gold);font-size:1rem}.wish p{margin:4px 0 0;font-size:1.08rem}
+.msg{min-height:1.4em;font-weight:600;color:var(--maroon);text-align:center}
+.rsvp-heading{position:relative!important;z-index:3!important;display:inline-block;margin:0 0 10px 18px;font-size:2.35rem;transform:translate(28px,-10px);text-shadow:0 2px 6px #16080d}
+footer{padding:50px 22px 90px;font-size:1rem}
+#music{position:fixed;right:14px;bottom:calc(74px + env(safe-area-inset-bottom,0px));z-index:40;width:46px;height:46px;border-radius:50%;border:1px solid var(--gold);background:var(--maroon);color:#fbf3e8;font-size:1.2rem;cursor:pointer;box-shadow:0 8px 24px rgba(0,0,0,.35)}
+#music.spin{animation:sp 6s linear infinite}@keyframes sp{to{transform:rotate(360deg)}}
+.rv{opacity:0;transform:translateY(18px);transition:opacity .8s,transform .8s}.rv.in{opacity:1;transform:none}
+.wipe{position:relative;opacity:0;clip-path:inset(0 100% 0 0);transform:translateX(-18px)}
+.wipe.in{opacity:1;clip-path:inset(0 0 0 0);transform:none;transition:opacity .25s ease,transform .7s ease,clip-path 1s cubic-bezier(.77,0,.18,1)}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv,.wipe{opacity:1;clip-path:none;transform:none}}
+@media(max-width:520px){
+  html,body{overflow-x:hidden}
+  body{font-size:18px}
+  section{width:100%;padding:56px 14px}
+  #hero{padding-top:72px}
+  .frame{padding:28px 16px}
+  .names{font-size:clamp(2.8rem,13vw,3.8rem)}
+  #hero .names{font-size:clamp(3rem,15vw,4.4rem)!important}
+  .person .nm{font-size:clamp(2.45rem,11vw,3.05rem)}
+  h2{font-size:2.8rem}
+  .rsvp-heading{font-size:2.15rem;margin-left:12px;transform:translate(35px,-3px)}
+  .date{font-size:1rem;letter-spacing:.1em}
+  .count{gap:6px}
+  .count div{padding:8px 2px}
+  .count b{font-size:1.55rem}
+  .acts{flex-direction:column;align-items:stretch}
+  .acts .btn{width:100%}
+  .venue{overflow-wrap:anywhere}
+  .gal div{flex-basis:calc(50% - 8px)}
+  footer{padding:40px 14px 80px}
+}
+</style>
+</head>
+<body>
+
+<div id="cover" role="dialog" aria-label="Sampul undangan">
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="rose" viewBox="0 0 100 100"><circle cx="50" cy="50" r="47" fill="var(--r1)"/><circle cx="50" cy="50" r="38" fill="var(--r2)" opacity=".35"/><path d="M50 12c22 2 37 19 35 40-2 20-19 34-39 32-18-2-31-18-29-35 2-16 16-27 32-25 14 2 23 13 21 27-2 12-12 19-24 17-10-2-15-10-13-18 2-7 9-10 15-8 5 2 6 7 3 10" fill="none" stroke="var(--r2)" stroke-width="4.5" stroke-linecap="round" opacity=".85"/><path d="M18 30c10-14 24-20 40-18M82 70c-10 14-24 20-40 18" fill="none" stroke="#000" stroke-opacity=".18" stroke-width="3" stroke-linecap="round"/></symbol>
+<symbol id="leaf" viewBox="0 0 40 20"><path d="M0 10C10 0 28 0 40 10 28 20 10 20 0 10Z" fill="currentColor"/><path d="M2 10h34" stroke="#fff" stroke-opacity=".35" stroke-width="1"/></symbol>
+<symbol id="corner" viewBox="0 0 220 220"><g stroke="#7a1f35" stroke-linecap="round" fill="none" opacity=".85"><path d="M150 6c8 40-4 72 2 118" stroke-width="6"/><path d="M178 6c4 32-2 60 4 96" stroke-width="5"/><path d="M122 4c3 30-3 52 0 84" stroke-width="5"/><path d="M205 6c2 24-1 44 2 70" stroke-width="4"/></g><use href="#leaf" x="88" y="72" width="60" height="30" transform="rotate(35 118 87)" style="color:#9a4a50"/><use href="#leaf" x="6" y="96" width="64" height="32" transform="rotate(70 38 112)" style="color:#b98a4e"/><use href="#leaf" x="60" y="12" width="56" height="28" transform="rotate(-10 88 26)" style="color:#b98a4e"/><use href="#rose" class="rg" x="2" y="2" width="84" height="84"/><use href="#rose" class="ra" x="30" y="30" width="104" height="104"/><use href="#rose" class="rb" x="88" y="20" width="58" height="58"/><use href="#rose" class="rg" x="14" y="112" width="50" height="50"/></symbol>
+<symbol id="forestS" viewBox="0 0 400 90"><path d="M0 70C60 50 110 62 170 54S300 40 400 62V90H0Z" fill="currentColor" opacity=".35"/><g fill="currentColor"><path d="M20 90l16-52 16 52zM44 90l12-40 12 40zM300 90l15-54 15 54zM328 90l12-38 12 38zM356 90l14-48 14 48z"/><path d="M95 90V64M95 64a20 17 0 1 1 .1 0M150 90V70M150 70a15 13 0 1 1 .1 0M240 90V60M240 60a24 20 0 1 1 .1 0" opacity=".8"/><rect x="93" y="60" width="4" height="30"/><rect x="148" y="66" width="4" height="24"/><rect x="238" y="58" width="4" height="32"/></g></symbol>
+</defs></svg>
+  <svg class="art tl-" viewBox="0 0 220 220" aria-hidden="true"><use href="#corner"/></svg>
+  <svg class="art br-" viewBox="0 0 220 220" aria-hidden="true"><use href="#corner"/></svg>
+  <svg class="forest" viewBox="0 0 400 90" aria-hidden="true"><use href="#forestS"/></svg>
+  <div class="small">THE WEDDING OF</div>
+  <div class="mono script">T<span style="color:var(--gold)">&amp;</span>R</div>
+  <div class="names script">Tara <span class="amp">&amp;</span> Riza</div>
+  <div class="date">SENIN, 30 NOVEMBER 2026</div>
+  <div class="guest">Masukkan nomor telepon Anda.
+    <input id="gname" type="tel" inputmode="tel" placeholder="Contoh: 0812 3456 7001" aria-label="Nomor telepon" maxlength="18" autocomplete="off">
+  </div>
+  <div class="err" id="err" role="alert"></div>
+  <p style="font-size:1rem;max-width:480px;margin:6px auto 10px">Mohon maaf atas keterbatasan ruang yang tersedia. Undangan ini bersifat personal dan hanya berlaku untuk satu orang penerima undangan.</p>
+  <button class="btn" id="openBtn">Buka Undangan</button>
+  <p style="font-size:.95rem;margin:14px 0 0">Mohon maaf apabila ada kesalahan pada penulisan nama / gelar</p>
+</div>
+
+<button id="music" aria-label="Putar atau hentikan musik" title="Musik">♪</button>
+
+<section id="hero">
+  <svg class="art tl-" viewBox="0 0 220 220" aria-hidden="true"><use href="#corner"/></svg>
+  <svg class="art tr-" viewBox="0 0 220 220" aria-hidden="true"><use href="#corner"/></svg>
+  <div class="rv">
+    <p class="ayat">Assalamu’alaikum Warahmatullahi Wabarakatuh</p>
+    <div class="small">THE WEDDING OF</div>
+    <div class="names script" style="font-size:4.4rem">Tara <span class="amp">&amp;</span> Riza</div>
+    <div class="date">SENIN, 30 NOVEMBER 2026</div>
+    <p id="hello" class="guest" style="margin-top:14px"></p>
+    <div class="count" id="count" aria-live="off">
+      <div><b id="d">0</b><span>Hari</span></div><div><b id="h">0</b><span>Jam</span></div><div><b id="m">0</b><span>Menit</span></div><div><b id="s">0</b><span>Detik</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="ayat">
+  <div class="frame rv">
+    <svg class="art tl-" viewBox="0 0 220 220" aria-hidden="true"><use href="#corner"/></svg><svg class="art br-" viewBox="0 0 220 220" aria-hidden="true"><use href="#corner"/></svg>
+    <span class="orn">❖ ❖ ❖</span>
+    <p class="ayat">Dan di antara tanda-tanda (kebesaran)-Nya ialah diciptakan-Nya pasangan hidup dari jenismu sendiri, supaya kamu merasa tenteram kepadanya, dan dijadikan-Nya di antaramu rasa kasih dan sayang. Sesungguhnya yang demikian itu menjadi tanda-tanda (kebesaran Allah) bagi kaum yang berpikir.</p>
+    <p class="small">(Q.S Ar-Rum : 21)</p>
+  </div>
+</section>
+
+<section id="mempelai">
+  <div class="rv">
+    <h2>Mempelai</h2>
+    <p>Maha Suci Allah SWT yang telah menciptakan makhluk-Nya berpasang-pasangan. Ya Allah, perkenankanlah kami menikahkan putra-putri kami:</p>
+    <div class="person"><div class="nm script">Tara Adhita Safira Safardan</div>
+      <p>Putri Pertama</p><p><b>Foe Min Fong &amp; Dolin Yudhit Pramadita</b></p></div>
+    <div class="dengan">dengan</div>
+    <div class="person"><div class="nm script">Riza Pambudi</div>
+      <p>Putra Kedua</p><p><b>Waryadi &amp; Jumiati</b></p></div>
+  </div>
+</section>
+
+<section id="acara">
+  <div class="rv">
+    <h2 class="wipe">Waktu &amp; Tempat</h2>
+    <p>Insya Allah akan diselenggarakan pada:</p>
+    <div class="big">30</div><div class="date event-date">SENIN · NOVEMBER 2026</div>
+    <div class="ev">
+      <div class="card"><h3 class="script" style="font-size:2rem">Akad &amp; Syukuran</h3><p>Pukul<br><b>10.00 WIB</b></p></div>
+    </div>
+    <div class="venue"><b>Kampung Kari 88</b>
+      Jl. DR. Setiabudi Jl. Kp. Bulak No.88, RT.004/RW.003, Pd Kacang Tim., Kec. Pd Aren, Kota Tangerang Selatan, Banten 15226</div>
+    <div class="acts">
+      <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Kampung+Kari+88+Tangerang+Selatan">Buka Peta</a>
+      <a class="btn ghost" target="_blank" rel="noopener" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Akad+%26+Syukuran+Tara+%26+Riza&dates=20261130T030000Z/20261130T050000Z&details=Akad+%26+Syukuran+pukul+10.00+WIB&location=Kampung+Kari+88%2C+Tangerang+Selatan">Simpan ke Kalender</a>
+    </div>
+  </div>
+</section>
+
+<section id="hadiah">
+  <div class="frame rv">
+    <svg class="art tr-" viewBox="0 0 220 220" aria-hidden="true"><use href="#corner"/></svg><svg class="art bl-" viewBox="0 0 220 220" aria-hidden="true"><use href="#corner"/></svg>
+    <h2 class="wipe">Kirim Hadiah</h2>
+    <p>Doa restu Anda sudah sangat berarti bagi kami. Jika ingin memberikan tanda kasih, dapat melalui rekening keluarga mempelai.</p>
+    <div id="giftBox"></div>
+  </div>
+</section>
+
+<section id="rsvp">
+  <div class="frame rv">
+    <svg class="art tl-" viewBox="0 0 220 220" aria-hidden="true"><use href="#corner"/></svg><svg class="art br-" viewBox="0 0 220 220" aria-hidden="true"><use href="#corner"/></svg>
+    <h2 class="rsvp-heading">Konfirmasi Kehadiran</h2>
+    <form id="rf">
+      <div><label for="n">Nama</label><input id="n" required maxlength="40"></div>
+      <div><label for="a">Kehadiran</label>
+        <select id="a"><option>Hadir</option><option>Tidak hadir</option></select></div>
+      <div><label for="w">Ucapan &amp; doa</label><textarea id="w" rows="3" maxlength="240" required></textarea></div>
+      <button class="btn" type="submit">Kirim Ucapan</button>
+      <div class="msg" id="msg" role="status"></div>
+    </form>
+    <div class="wishes" id="wishes"></div>
+  </div>
+</section>
+
+<footer>
+  <svg class="forest" viewBox="0 0 400 90" aria-hidden="true" style="margin-bottom:24px"><use href="#forestS"/></svg>
+  <p>Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada kedua mempelai.</p>
+  <p class="ayat">Wassalamu’alaikum Warahmatullahi Wabarakatuh</p>
+  <div class="names script" style="font-size:3rem">Tara &amp; Riza</div>
+  <span class="orn">❖</span>
+</footer>
+
+<script type="module">
+  // Impor modul Firebase dari CDN
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
+  import { getFirestore, collection, addDoc, onSnapshot, query, orderBy, serverTimestamp, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
+
+  // 1. MASUKKAN FIREBASE CONFIG DI SINI
+  const firebaseConfig = {
+  apiKey: "AIzaSyAQ2bCctW9-r5zvBT_Oh8YhA1RoQIXVu3I",
+  authDomain: "undangan-pernikahan-32e28.firebaseapp.com",
+  projectId: "undangan-pernikahan-32e28",
+  storageBucket: "undangan-pernikahan-32e28.firebasestorage.app",
+  messagingSenderId: "440788285011",
+  appId: "1:440788285011:web:9e24ead3dbd5104870f8a6",
+  measurementId: "G-M2NTCSERQX"
+};
+
+  // Inisialisasi Firebase & Firestore
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+  const wishesRef = collection(db, "ucapan"); // Nama tabel/koleksi di database
+
+  // ==========================================
+  // LOGIKA BAWAAN UNDANGAN (TIDAK BERUBAH)
+  // ==========================================
+  const $ = function(i){return document.getElementById(i)};
+  const cover = $('cover');
+  
+  // Daftar tamu: nomor (format 08...) => nama
+  // const GUESTS={'081234567001':'Bapak Budi Santoso','081234567002':'Ibu Siti Rahmawati','081234567003':'Saudara Andi Pratama'};
+  const ACCOUNTS=[{bank:'BCA',no:'8870716541',an:'Zoelkiflie Ahmadhani'}];
+
+  function norm(v){let d=String(v).replace(/\D/g,'');if(d.indexOf('62')===0)d='0'+d.slice(2);return d}
+
+  async function enter(){
+    let inputNomor = norm($('gname').value);
+    if(!inputNomor) return;
+
+    let btn = $('openBtn');
+    let originalText = btn.textContent;
+    btn.textContent = "Mengecek...";
+    btn.disabled = true;
+
+    try {
+      // Mengambil referensi dokumen berdasarkan nomor telepon (Document ID)
+      const tamuRef = doc(db, "tamu", inputNomor);
+      const docSnap = await getDoc(tamuRef);
+
+      if (docSnap.exists()) {
+        // Jika nomor ditemukan di database
+        let namaTamu = docSnap.data().nama;
+        $('err').textContent = '';
+        $('hello').innerHTML = 'Kepada Yth. <b>' + esc(namaTamu) + '</b>';
+        $('n').value = namaTamu; // Otomatis mengisi nama di form RSVP
+        
+        $('cover').classList.add('open');
+        document.body.style.overflow = '';
+        window.scrollTo(0,0);
+      } else {
+        // Jika nomor tidak ada di database
+        $('err').textContent = 'Nomor tidak terdaftar. Gunakan nomor yang menerima undangan ini.';
+      }
+    } catch(error) {
+      console.error("Error cek tamu: ", error);
+      $('err').textContent = 'Terjadi kesalahan jaringan. Coba lagi.';
+    } finally {
+      // Kembalikan tombol ke keadaan semula
+      btn.textContent = originalText;
+      btn.disabled = false;
+    }
+  }
+
+  $('openBtn').onclick=enter;
+  $('gname').onkeydown=function(e){if(e.key==='Enter')enter()};
+
+  $('giftBox').innerHTML=ACCOUNTS.map(function(a,i){return '<div class="acc"><b>'+a.bank+'</b><div class="no" id="no'+i+'">'+a.no+'</div>a.n. '+a.an+'<br><button class="btn ghost sm" type="button" data-i="'+i+'" style="margin-top:10px">Salin nomor rekening</button></div>'}).join('');
+  $('giftBox').onclick=function(e){
+    let b=e.target.closest('button');if(!b)return;
+    let t=ACCOUNTS[b.dataset.i].no;
+    try{navigator.clipboard.writeText(t).then(function(){b.textContent='Tersalin'},function(){b.textContent='Salin manual'})}catch(x){b.textContent='Salin manual'}
+  };
+  document.body.style.overflow='hidden';
+
+  // Countdown
+  const target=new Date('2026-11-30T10:00:00+07:00').getTime();
+  function tick(){
+    let t=target-Date.now();if(t<0)t=0;
+    $('d').textContent=Math.floor(t/864e5);$('h').textContent=Math.floor(t%864e5/36e5);
+    $('m').textContent=Math.floor(t%36e5/6e4);$('s').textContent=Math.floor(t%6e4/1e3);
+  }
+  tick();setInterval(tick,1000);
+
+  // Animasi Muncul
+  if('IntersectionObserver' in window){
+    let io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15});
+    document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+    document.querySelectorAll('.wipe').forEach(function(el){io.observe(el)});
+  }else{
+    document.querySelectorAll('.rv,.wipe').forEach(function(el){el.classList.add('in')});
+  }
+
+  // Musik
+  let ctx,playing=false,timer,notes=[392,494,587,659,587,494,440,523];
+  function chime(i){
+    let o=ctx.createOscillator(),g=ctx.createGain();o.type='sine';o.frequency.value=notes[i%notes.length];
+    g.gain.setValueAtTime(0,ctx.currentTime);g.gain.linearRampToValueAtTime(.08,ctx.currentTime+.05);g.gain.exponentialRampToValueAtTime(.001,ctx.currentTime+1.6);
+    o.connect(g);g.connect(ctx.destination);o.start();o.stop(ctx.currentTime+1.7);
+  }
+  $('music').onclick=function(){
+    let AC=window.AudioContext||window.webkitAudioContext;if(!AC)return;
+    if(!ctx)ctx=new AC();
+    playing=!playing;this.classList.toggle('spin',playing);
+    if(playing){let i=0;ctx.resume();chime(i++);timer=setInterval(function(){chime(i++)},900)}else clearInterval(timer);
+  };
+
+  // ==========================================
+  // LOGIKA BARU UNTUK DATABASE RSVP FIREBASE
+  // ==========================================
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+
+  // 1. Membaca data secara Real-Time dari Firestore
+  const q = query(wishesRef, orderBy("timestamp", "desc")); // Urutkan ucapan terbaru di atas
+  onSnapshot(q, (snapshot) => {
+    let html = "";
+    snapshot.forEach((doc) => {
+      let data = doc.data();
+      html += '<div class="wish"><b>'+esc(data.n)+'</b><small>'+esc(data.a)+'</small><p>'+esc(data.w)+'</p></div>';
+    });
+    
+    // Tampilkan pesan kosong jika belum ada data
+    if(html === "") {
+      html = "<p style='text-align:center;font-size:0.95rem;color:var(--gold);'>Belum ada ucapan. Jadilah yang pertama memberikan doa restu!</p>";
+    }
+    
+    $('wishes').innerHTML = html;
+  });
+
+  // 2. Mengirim data ke Firestore saat tombol disubmit
+  $('rf').onsubmit = async function(e){
+    e.preventDefault();
+    let btn = this.querySelector('button');
+    btn.textContent = "Mengirim..."; 
+    btn.disabled = true;
+
+    try {
+      // Perintah menyimpan ke Firestore
+      await addDoc(wishesRef, {
+        n: $('n').value.trim(),
+        a: $('a').value,
+        w: $('w').value.trim(),
+        timestamp: serverTimestamp() // Menyimpan waktu otomatis dari server Google
+      });
+      
+      $('w').value = '';
+      $('msg').textContent = 'Terima kasih, ucapan Anda sudah terkirim.';
+    } catch(error) {
+      console.error("Error adding document: ", error);
+      $('msg').textContent = 'Terjadi kesalahan. Silakan coba lagi.';
+    } finally {
+      btn.textContent = "Kirim Ucapan";
+      btn.disabled = false;
+      setTimeout(() => $('msg').textContent='', 5000); // Hapus notifikasi setelah 5 detik
+    }
+  };
+</script>
+
+</body>
+</html>
