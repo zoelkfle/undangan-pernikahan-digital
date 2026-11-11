@@ -257,7 +257,7 @@ footer{padding:50px 22px 90px;font-size:1rem}
   
   // Daftar tamu: nomor (format 08...) => nama
   // const GUESTS={'081234567001':'Bapak Budi Santoso','081234567002':'Ibu Siti Rahmawati','081234567003':'Saudara Andi Pratama'};
-  const ACCOUNTS=[{bank:'BCA',no:'8870716541',an:'Zoelkiflie Ahmadhani'}];
+  const ACCOUNTS=[{bank:'BCA',no:'8870593741',an:'Tara Adhita Safira Safardan'}];
 
   function norm(v){let d=String(v).replace(/\D/g,'');if(d.indexOf('62')===0)d='0'+d.slice(2);return d}
 
@@ -328,18 +328,14 @@ footer{padding:50px 22px 90px;font-size:1rem}
     document.querySelectorAll('.rv,.wipe').forEach(function(el){el.classList.add('in')});
   }
 
-  // Musik
-  let ctx,playing=false,timer,notes=[392,494,587,659,587,494,440,523];
-  function chime(i){
-    let o=ctx.createOscillator(),g=ctx.createGain();o.type='sine';o.frequency.value=notes[i%notes.length];
-    g.gain.setValueAtTime(0,ctx.currentTime);g.gain.linearRampToValueAtTime(.08,ctx.currentTime+.05);g.gain.exponentialRampToValueAtTime(.001,ctx.currentTime+1.6);
-    o.connect(g);g.connect(ctx.destination);o.start();o.stop(ctx.currentTime+1.7);
-  }
+  // Musik Memories piano version dari berkas lokal.
+  const musicAudio=new Audio('src/Nostalgic%20One%20Piece%20Ending%20Theme%20-%20Memories%E3%80%90%20Piano%20%E3%83%94%E3%82%A2%E3%83%8E%20%E3%80%91Episode%20808.mp3');
+  musicAudio.loop=true;
+  musicAudio.volume=.7;
+  let playing=false;
   $('music').onclick=function(){
-    let AC=window.AudioContext||window.webkitAudioContext;if(!AC)return;
-    if(!ctx)ctx=new AC();
     playing=!playing;this.classList.toggle('spin',playing);
-    if(playing){let i=0;ctx.resume();chime(i++);timer=setInterval(function(){chime(i++)},900)}else clearInterval(timer);
+    if(playing){musicAudio.play().catch(function(){playing=false;$('music').classList.remove('spin')})}else musicAudio.pause();
   };
 
   // ==========================================
