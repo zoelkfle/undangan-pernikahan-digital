@@ -17,7 +17,8 @@ p{font-size:1.08em}
 section{padding:72px 22px;max-width:680px;margin:0 auto;position:relative}
 h2{font-family:'Pinyon Script',cursive;font-weight:400;font-size:2.9rem;margin:0 0 14px;color:var(--maroon)}
 .frame{position:relative;border:1px solid var(--line);border-radius:6px;background:var(--card);padding:34px 22px;overflow:hidden}
-.art{position:absolute;pointer-events:none;width:150px;height:150px;z-index:0}
+.art{position:absolute;pointer-events:none;width:150px;height:150px;z-index:0;filter:saturate(.95) contrast(1.05);opacity:.96}
+.art use{display:inline}
 .art.tl-{top:-8px;left:-8px}.art.br-{bottom:-8px;right:-8px;transform:rotate(180deg)}.art.tr-{top:-8px;right:-8px;transform:scaleX(-1)}.art.bl-{bottom:-8px;left:-8px;transform:scaleY(-1)}
 .frame>*:not(.art){position:relative;z-index:1}
 .ra{--r1:#7a1f35;--r2:#b34a60}.rg{--r1:#d2a366;--r2:#f3dcae}.rb{--r1:#a53048;--r2:#dc8f9d}
@@ -101,7 +102,7 @@ footer{padding:50px 22px 90px;font-size:1rem}
   #hero .names{font-size:clamp(3rem,15vw,4.4rem)!important}
   .person .nm{font-size:clamp(2.45rem,11vw,3.05rem)}
   h2{font-size:2.8rem}
-  .rsvp-heading{font-size:2.15rem;margin-left:12px;transform:translate(35px,-3px)}
+  .rsvp-heading{font-size:2.1rem;margin-left:12px;transform:translate(35px,-3px)}
   .date{font-size:1rem;letter-spacing:.1em}
   .count{gap:6px}
   .count div{padding:8px 2px}
@@ -118,9 +119,9 @@ footer{padding:50px 22px 90px;font-size:1rem}
 
 <div id="cover" role="dialog" aria-label="Sampul undangan">
   <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
-<symbol id="rose" viewBox="0 0 100 100"><circle cx="50" cy="50" r="47" fill="var(--r1)"/><circle cx="50" cy="50" r="38" fill="var(--r2)" opacity=".35"/><path d="M50 12c22 2 37 19 35 40-2 20-19 34-39 32-18-2-31-18-29-35 2-16 16-27 32-25 14 2 23 13 21 27-2 12-12 19-24 17-10-2-15-10-13-18 2-7 9-10 15-8 5 2 6 7 3 10" fill="none" stroke="var(--r2)" stroke-width="4.5" stroke-linecap="round" opacity=".85"/><path d="M18 30c10-14 24-20 40-18M82 70c-10 14-24 20-40 18" fill="none" stroke="#000" stroke-opacity=".18" stroke-width="3" stroke-linecap="round"/></symbol>
+<symbol id="rose" viewBox="0 0 100 100"><defs><radialGradient id="roseLight" cx="35%" cy="24%"><stop offset="0" stop-color="#ffe9df" stop-opacity=".95"/><stop offset=".16" stop-color="#ff8eaa"/><stop offset=".48" stop-color="#d82d58"/><stop offset=".82" stop-color="#86142d"/><stop offset="1" stop-color="#250710"/></radialGradient><linearGradient id="rosePetal" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff9ab3"/><stop offset=".36" stop-color="#e52c61"/><stop offset=".78" stop-color="#8d1230"/><stop offset="1" stop-color="#360914"/></linearGradient><radialGradient id="roseCore" cx="44%" cy="34%"><stop offset="0" stop-color="#ffb5c5"/><stop offset=".2" stop-color="#e83b6a"/><stop offset=".62" stop-color="#8b102e"/><stop offset="1" stop-color="#250710"/></radialGradient><filter id="roseShadow" x="-30%" y="-30%" width="160%" height="170%"><feGaussianBlur in="SourceAlpha" stdDeviation="1.7" result="blur"/><feOffset dy="3" result="offset"/><feFlood flood-color="#13050a" flood-opacity=".7"/><feComposite in2="offset" operator="in"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><g filter="url(#roseShadow)"><path d="M49 8C36 1 19 9 21 24 7 19 0 36 12 45 0 55 10 72 25 70 22 86 40 93 51 81 60 94 78 86 75 71 91 75 101 57 88 48 98 35 84 19 70 25 68 10 55 2 49 8Z" fill="url(#roseLight)" stroke="#ff8ba6" stroke-opacity=".5" stroke-width="1.3"/><path d="M23 25C27 12 45 13 51 27 57 11 76 15 75 31 90 27 95 43 82 51 91 62 77 75 64 67 59 83 39 78 40 63 24 68 13 53 27 45 17 37 18 29 23 25Z" fill="url(#rosePetal)" opacity=".92"/><path d="M35 30C27 24 25 38 36 42 23 47 32 61 43 55 38 69 55 73 58 60 67 70 80 57 69 48 82 44 74 31 63 37 64 25 47 22 47 35 41 26 34 25 35 30Z" fill="none" stroke="#ff6f94" stroke-opacity=".88" stroke-width="5.2" stroke-linecap="round"/><path d="M48 34C39 29 34 41 43 46 31 51 42 61 50 54 47 66 62 65 60 54 72 58 75 44 63 43 68 33 56 28 48 34Z" fill="url(#roseCore)" stroke="#ff9eb2" stroke-opacity=".7" stroke-width="1.6"/><path d="M48 41C42 37 39 46 46 49 40 54 49 58 53 52 58 58 64 51 58 47 63 42 55 39 48 41Z" fill="none" stroke="#ffd0d7" stroke-opacity=".7" stroke-width="2.4" stroke-linecap="round"/><path d="M22 48C29 57 36 59 42 57M77 50C70 59 64 61 58 58M31 25C36 19 43 18 49 22M62 20C69 23 73 28 72 35" fill="none" stroke="#ffd8df" stroke-opacity=".5" stroke-width="1.8" stroke-linecap="round"/></g></symbol>
 <symbol id="leaf" viewBox="0 0 40 20"><path d="M0 10C10 0 28 0 40 10 28 20 10 20 0 10Z" fill="currentColor"/><path d="M2 10h34" stroke="#fff" stroke-opacity=".35" stroke-width="1"/></symbol>
-<symbol id="corner" viewBox="0 0 220 220"><g stroke="#7a1f35" stroke-linecap="round" fill="none" opacity=".85"><path d="M150 6c8 40-4 72 2 118" stroke-width="6"/><path d="M178 6c4 32-2 60 4 96" stroke-width="5"/><path d="M122 4c3 30-3 52 0 84" stroke-width="5"/><path d="M205 6c2 24-1 44 2 70" stroke-width="4"/></g><use href="#leaf" x="88" y="72" width="60" height="30" transform="rotate(35 118 87)" style="color:#9a4a50"/><use href="#leaf" x="6" y="96" width="64" height="32" transform="rotate(70 38 112)" style="color:#b98a4e"/><use href="#leaf" x="60" y="12" width="56" height="28" transform="rotate(-10 88 26)" style="color:#b98a4e"/><use href="#rose" class="rg" x="2" y="2" width="84" height="84"/><use href="#rose" class="ra" x="30" y="30" width="104" height="104"/><use href="#rose" class="rb" x="88" y="20" width="58" height="58"/><use href="#rose" class="rg" x="14" y="112" width="50" height="50"/></symbol>
+<symbol id="corner" viewBox="0 0 220 220"><g stroke="#7a1f35" stroke-linecap="round" fill="none" opacity=".85"><path d="M150 6c8 40-4 72 2 118" stroke-width="6"/><path d="M178 6c4 32-2 60 4 96" stroke-width="5"/><path d="M122 4c3 30-3 52 0 84" stroke-width="5"/><path d="M205 6c2 24-1 44 2 70" stroke-width="4"/></g><use href="#leaf" x="88" y="72" width="60" height="30" transform="rotate(35 118 87)" style="color:#9a4a50"/><use href="#leaf" x="6" y="96" width="64" height="32" transform="rotate(70 38 112)" style="color:#b98a4e"/><use href="#leaf" x="60" y="12" width="56" height="28" transform="rotate(-10 88 26)" style="color:#b98a4e"/><use href="#leaf" x="124" y="126" width="58" height="29" transform="rotate(20 153 140)" style="color:#a64d55"/><use href="#leaf" x="34" y="158" width="52" height="26" transform="rotate(145 60 171)" style="color:#d8ab70"/><use href="#rose" class="rg" x="2" y="2" width="84" height="84"/><use href="#rose" class="ra" x="30" y="30" width="104" height="104"/><use href="#rose" class="rb" x="88" y="20" width="58" height="58"/><use href="#rose" class="rg" x="14" y="112" width="50" height="50"/><use href="#rose" class="rb" x="132" y="112" width="42" height="42"/><use href="#rose" class="ra" x="174" y="54" width="34" height="34"/></symbol>
 <symbol id="forestS" viewBox="0 0 400 90"><path d="M0 70C60 50 110 62 170 54S300 40 400 62V90H0Z" fill="currentColor" opacity=".35"/><g fill="currentColor"><path d="M20 90l16-52 16 52zM44 90l12-40 12 40zM300 90l15-54 15 54zM328 90l12-38 12 38zM356 90l14-48 14 48z"/><path d="M95 90V64M95 64a20 17 0 1 1 .1 0M150 90V70M150 70a15 13 0 1 1 .1 0M240 90V60M240 60a24 20 0 1 1 .1 0" opacity=".8"/><rect x="93" y="60" width="4" height="30"/><rect x="148" y="66" width="4" height="24"/><rect x="238" y="58" width="4" height="32"/></g></symbol>
 </defs></svg>
   <svg class="art tl-" viewBox="0 0 220 220" aria-hidden="true"><use href="#corner"/></svg>
@@ -170,10 +171,10 @@ footer{padding:50px 22px 90px;font-size:1rem}
     <h2>Mempelai</h2>
     <p>Maha Suci Allah SWT yang telah menciptakan makhluk-Nya berpasang-pasangan. Ya Allah, perkenankanlah kami menikahkan putra-putri kami:</p>
     <div class="person"><div class="nm script">Tara Adhita Safira Safardan</div>
-      <p>Putri Pertama</p><p><b>Foe Min Fong &amp; Dolin Yudhit Pramadita</b></p></div>
+      <p>Putri pertama dari</p><p><b>Foe Min Fong &amp; Dolin Yudhit Pramadita</b></p></div>
     <div class="dengan">dengan</div>
     <div class="person"><div class="nm script">Riza Pambudi</div>
-      <p>Putra Kedua</p><p><b>Waryadi &amp; Jumiati</b></p></div>
+      <p>Putra kedua dari</p><p><b>Waryadi &amp; Jumiati</b></p></div>
   </div>
 </section>
 
