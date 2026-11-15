@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="auth-locked">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -11,6 +11,7 @@ box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:en
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#2a0d16;--bg2:#3a111e;--ink:#f1dcc0;--maroon:#d8ab70;--gold:#d8ab70;--card:#3d1722;--line:#7a5030}}
 :root[data-theme="dark"]{--bg:#2a0d16;--bg2:#3a111e;--ink:#f1dcc0;--maroon:#d8ab70;--gold:#d8ab70;--card:#3d1722;--line:#7a5030}
 *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+html.auth-locked,body.auth-locked{overflow:hidden;height:100%;overscroll-behavior:none}
 body{margin:0;background:linear-gradient(145deg,#100509 0%,#2a0b15 34%,#641a2d 72%,#16070d 100%);background-attachment:fixed;color:var(--ink);font-family:'Cormorant Garamond',Georgia,serif;font-size:20px;line-height:1.6;text-align:center}
 p{font-size:1.08em}
 .script{font-family:'Pinyon Script','Snell Roundhand',cursive;font-weight:400;color:var(--maroon)}
@@ -49,6 +50,7 @@ h2{font-family:'Pinyon Script',cursive;font-weight:400;font-size:2.9rem;margin:0
 .guest input{display:block;margin:8px auto 0;width:min(280px,80%);text-align:center;font:inherit;border:0;border-bottom:1px solid var(--gold);background:transparent;color:var(--ink);padding:4px}
 /* hero */
 #hero{padding-top:90px}
+#hero .rv{position:relative;z-index:1}
 .date{font-size:1.25rem;letter-spacing:.18em;margin-top:10px}
 .count{display:flex;gap:10px;justify-content:center;margin-top:26px;flex-wrap:wrap}
 .count div{flex:1 1 58px;min-width:58px;border:1px solid var(--line);background:var(--card);border-radius:8px;padding:10px 4px}
@@ -62,7 +64,11 @@ h2{font-family:'Pinyon Script',cursive;font-weight:400;font-size:2.9rem;margin:0
 .ev{display:flex;flex-wrap:wrap;gap:14px;margin-top:20px}
 .ev .card{flex:1 1 240px;min-width:0}
 .ev .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:22px 14px}
-.ev h3{margin:0 0 4px;font-size:1.4rem;color:var(--maroon)}
+.ev h3{margin:0 0 4px;font-size:2.9rem;color:var(--maroon)}
+.event-time{display:flex;align-items:center;justify-content:center;gap:.45em;margin:8px 0 0;font-size:1.5rem}
+.dress-code{margin-top:18px;padding:24px 18px}
+.dress-code h3{margin:0 0 6px;font-size:2rem;color:var(--maroon)}
+.dress-code p{margin:0;font-size:1.5rem}
 .big{font-size:3.4rem;line-height:1;color:var(--maroon);font-weight:600;margin-bottom:4px}
 .event-date{margin-top:0;text-align:center}
 .venue{margin-top:24px}.venue b{display:block;font-size:1.45rem;color:var(--maroon)}
@@ -88,7 +94,8 @@ input,textarea,select{width:100%;font:inherit;font-size:1rem;padding:10px 12px;b
 .wish{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--maroon);border-radius:8px;padding:10px 14px}
 .wish b{color:var(--maroon)}.wish small{display:block;color:var(--gold);font-size:1rem}.wish p{margin:4px 0 0;font-size:1.08rem}
 .msg{min-height:1.4em;font-weight:600;color:var(--maroon);text-align:center}
-.rsvp-heading{position:relative!important;z-index:3!important;display:inline-block;margin:0 0 10px 18px;font-size:2.2rem;transform:translate(28px,-10px);text-shadow:0 2px 6px #16080d}
+.rsvp-heading{position:relative!important;z-index:3!important;display:inline-block;margin:0 0 10px;font-size:2.2rem;text-shadow:0 2px 6px #16080d}
+#rsvp .frame{padding-top:40px}
 .gift-heading{display:block;text-align:left;transform:translateX(-8px)}
 footer{padding:50px 22px 90px;font-size:1rem}
 #music{position:fixed;right:14px;bottom:calc(74px + env(safe-area-inset-bottom,0px));z-index:40;width:46px;height:46px;border-radius:50%;border:1px solid var(--gold);background:var(--maroon);color:#fbf3e8;font-size:1.2rem;cursor:pointer;box-shadow:0 8px 24px rgba(0,0,0,.35)}
@@ -100,12 +107,15 @@ footer{padding:50px 22px 90px;font-size:1rem}
   body{font-size:18px}
   section{width:100%;padding:56px 14px}
   #hero{padding-top:72px}
+  #hero .rv{padding-top:64px}
   .frame{padding:28px 16px}
   .names{font-size:clamp(2.8rem,13vw,3.8rem)}
   #hero .names{font-size:clamp(3rem,15vw,4.4rem)!important}
   .person .nm{font-size:clamp(2.45rem,11vw,3.05rem)}
   h2{font-size:2.8rem}
-  .rsvp-heading{font-size:2rem;margin-left:12px;transform:translate(35px,-3px)}
+  .rsvp-heading{font-size:2.5rem;margin-left:0}
+  #ayat .frame{padding:75px 30px}
+  #rsvp .frame{padding-top:120px}
   .date{font-size:1rem;letter-spacing:.1em}
   .count{gap:6px}
   .count div{padding:8px 2px}
@@ -118,7 +128,7 @@ footer{padding:50px 22px 90px;font-size:1rem}
 }
 </style>
 </head>
-<body>
+<body class="auth-locked">
 
 <div id="cover" role="dialog" aria-label="Sampul undangan">
   <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
@@ -140,7 +150,6 @@ footer{padding:50px 22px 90px;font-size:1rem}
   <div class="err" id="err" role="alert"></div>
   <p style="font-size:1rem;max-width:480px;margin:6px auto 10px">Mohon maaf atas keterbatasan ruang yang tersedia. Undangan ini bersifat personal dan hanya berlaku untuk satu orang penerima undangan.</p>
   <button class="btn" id="openBtn">Buka Undangan</button>
-  <p style="font-size:.95rem;margin:14px 0 0">Mohon maaf apabila ada kesalahan pada penulisan nama / gelar</p>
 </div>
 
 <button id="music" aria-label="Putar atau hentikan musik" title="Musik">♪</button>
@@ -187,8 +196,9 @@ footer{padding:50px 22px 90px;font-size:1rem}
     <p>Insya Allah akan diselenggarakan pada:</p>
     <div class="big">30</div><div class="date event-date">SENIN · NOVEMBER 2026</div>
     <div class="ev">
-      <div class="card"><h3 class="script" style="font-size:2rem">Akad &amp; Syukuran</h3><p>Pukul<br><b>10.00 WIB</b></p></div>
+      <div class="card"><h3 class="script" style="font-size:2rem">Akad &amp; Syukuran</h3><p class="event-time"><span>Pukul</span><b>10.00 WIB</b></p></div>
     </div>
+    <div class="frame dress-code"><h3 class="script">Dress Code</h3><p>Mohon tidak memakai warna gelap terutama hitam dan maroon.</p></div>
     <div class="venue"><b>Kampung Kari 88</b>
       Jl. DR. Setiabudi Jl. Kp. Bulak No.88, RT.004/RW.003, Pd Kacang Tim., Kec. Pd Aren, Kota Tangerang Selatan, Banten 15226</div>
     <div class="acts">
@@ -200,7 +210,7 @@ footer{padding:50px 22px 90px;font-size:1rem}
 
 <section id="hadiah">
   <div class="frame rv">
-    <svg class="art tr-" viewBox="0 0 220 220" aria-hidden="true"><use href="#corner"/></svg><svg class="art bl-" viewBox="0 0 220 220" aria-hidden="true"><use href="#corner"/></svg>
+    <svg class="art tr-" viewBox="0 0 220 220" aria-hidden="true"><use href="#corner"/></svg>
     <h2 class="rv gift-heading">Kirim Hadiah</h2>
     <p>Doa restu Anda sudah sangat berarti bagi kami. Jika ingin memberikan tanda kasih, dapat melalui rekening keluarga mempelai.</p>
     <div id="giftBox"></div>
@@ -212,10 +222,10 @@ footer{padding:50px 22px 90px;font-size:1rem}
 
 <section id="rsvp">
   <div class="frame rv">
-    <svg class="art tl-" viewBox="0 0 220 220" aria-hidden="true"><use href="#corner"/></svg><svg class="art br-" viewBox="0 0 220 220" aria-hidden="true"><use href="#corner"/></svg>
+    <svg class="art tl-" viewBox="0 0 220 220" aria-hidden="true"><use href="#corner"/></svg>
     <h2 class="rsvp-heading">Konfirmasi Kehadiran</h2>
     <form id="rf">
-      <div><label for="n">Nama</label><input id="n" required maxlength="40"></div>
+      <div><label for="n">Nama</label><input id="n" required maxlength="40" readonly aria-readonly="true"></div>
       <div><label for="a">Kehadiran</label>
         <select id="a"><option>Hadir</option><option>Tidak hadir</option></select></div>
       <div><label for="w">Ucapan &amp; doa</label><textarea id="w" rows="3" maxlength="240" required></textarea></div>
@@ -314,8 +324,11 @@ footer{padding:50px 22px 90px;font-size:1rem}
         $('n').value = namaTamu; // Otomatis mengisi nama di form RSVP
         
         $('cover').classList.add('open');
+        document.documentElement.classList.remove('auth-locked');
+        document.body.classList.remove('auth-locked');
         document.body.style.overflow = '';
         window.scrollTo(0,0);
+        playMusic();
       } else {
         // Jika nomor tidak ada di database
         $('err').textContent = 'Nomor tidak terdaftar. Gunakan nomor yang menerima undangan ini.';
@@ -344,7 +357,8 @@ footer{padding:50px 22px 90px;font-size:1rem}
     let pesan='Halo, saya '+nama+' telah mengirim hadiah melalui rekening BCA. Bukti transfer saya lampirkan pada pesan ini. Terima kasih.';
     this.href='https://wa.me/628881905695?text='+encodeURIComponent(pesan);
   };
-  document.body.style.overflow='hidden';
+  document.documentElement.classList.add('auth-locked');
+  document.body.classList.add('auth-locked');
 
   // Countdown
   const target=new Date('2026-11-30T10:00:00+07:00').getTime();
@@ -360,9 +374,21 @@ footer{padding:50px 22px 90px;font-size:1rem}
   musicAudio.loop=true;
   musicAudio.volume=.7;
   let playing=false;
+  function playMusic(){
+    musicAudio.play().then(function(){
+      playing=true;
+      $('music').classList.add('spin');
+    }).catch(function(){
+      playing=false;
+      $('music').classList.remove('spin');
+    });
+  }
   $('music').onclick=function(){
-    playing=!playing;this.classList.toggle('spin',playing);
-    if(playing){musicAudio.play().catch(function(){playing=false;$('music').classList.remove('spin')})}else musicAudio.pause();
+    if(playing){
+      playing=false;
+      musicAudio.pause();
+      this.classList.remove('spin');
+    }else playMusic();
   };
 
   // ==========================================
