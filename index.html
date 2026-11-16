@@ -32,6 +32,7 @@ h2{font-family:'Pinyon Script',cursive;font-weight:400;font-size:2.9rem;margin:0
 #cover.open{transform:translateY(-100%);opacity:0;pointer-events:none}
 #cover .art{width:min(230px,52vw);height:min(230px,52vw)}
 .err{min-height:1.3em;font-size:.95rem;font-weight:600;color:#b3261e;margin:6px 0 10px}
+.err:empty{min-height:0;margin:0}
 :root[data-theme="dark"] .err{color:#ffb4ab}
 .acc{margin:12px auto 0;max-width:420px;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:14px 16px;text-align:left}
 .acc b{color:var(--maroon)}.acc .no{font-size:1.5rem;font-weight:600;letter-spacing:.06em;margin:2px 0 8px;word-break:break-all}.acc .btn.ghost{color:#ffe8d6!important;border-color:var(--gold)}
@@ -48,6 +49,7 @@ h2{font-family:'Pinyon Script',cursive;font-weight:400;font-size:2.9rem;margin:0
 @media (prefers-color-scheme:light){:root:not([data-theme="dark"]) .btn{color:#fbf3e8}}
 .guest{margin:18px 0 6px;font-size:1.1rem}
 .guest input{display:block;margin:8px auto 0;width:min(280px,80%);text-align:center;font:inherit;border:0;border-bottom:1px solid var(--gold);background:transparent;color:var(--ink);padding:4px}
+.guest-note{margin:2px 0 0;font-size:.95rem}
 /* hero */
 #hero{padding-top:90px}
 #hero .rv{position:relative;z-index:1}
@@ -59,17 +61,18 @@ h2{font-family:'Pinyon Script',cursive;font-weight:400;font-size:2.9rem;margin:0
 /* couple */
 .person{margin:26px 0}.person .nm{font-size:3.05rem;line-height:1.1}.person p{margin:2px 0}
 .dengan{font-style:italic;color:var(--gold);font-size:1.3rem}
-.ayat{font-style:italic;font-size:1.15rem}
+.ayat{font-style:italic;font-size:1.25rem}
 /* events */
 .ev{display:flex;flex-wrap:wrap;gap:14px;margin-top:20px}
 .ev .card{flex:1 1 240px;min-width:0}
 .ev .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:22px 14px}
 .ev h3{margin:0 0 4px;font-size:2.9rem;color:var(--maroon)}
 .event-time{display:flex;align-items:center;justify-content:center;gap:.45em;margin:8px 0 0;font-size:1.25rem}
+#acara .rv>p{margin-bottom:2px}
 .dress-code{margin-top:18px;padding:24px 18px}
 .dress-code h3{margin:0 0 6px;font-size:2rem;color:var(--maroon)}
 .dress-code p{margin:0;font-size:1.25rem}
-.big{font-size:3.4rem;line-height:1;color:var(--maroon);font-weight:600;margin-bottom:4px}
+.big{font-size:2.5rem;line-height:1;color:var(--maroon);font-weight:600;margin-bottom:4px}
 .event-date{margin-top:0;text-align:center}
 .venue{margin-top:24px}.venue b{display:block;font-size:1.5rem;color:var(--maroon)}
 .acts{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:18px}.acts .btn.ghost{color:#ffe8d6;border-color:var(--gold)}
@@ -98,6 +101,7 @@ input,textarea,select{width:100%;font:inherit;font-size:1rem;padding:10px 12px;b
 #rsvp .frame{padding-top:40px}
 .gift-heading{display:block;text-align:left;transform:translateX(-8px)}
 footer{padding:50px 22px 90px;font-size:1rem}
+.credit{margin:18px 0 0;font-size:.75rem;letter-spacing:.04em;opacity:.8}.credit a{color:inherit;text-decoration:none;border-bottom:1px solid currentColor}.credit a:hover,.credit a:focus-visible{color:var(--gold)}
 #music{position:fixed;right:14px;bottom:calc(74px + env(safe-area-inset-bottom,0px));z-index:40;width:46px;height:46px;border-radius:50%;border:1px solid var(--gold);background:var(--maroon);color:#fbf3e8;font-size:1.2rem;cursor:pointer;box-shadow:0 8px 24px rgba(0,0,0,.35)}
 #music.spin{animation:sp 6s linear infinite}@keyframes sp{to{transform:rotate(360deg)}}
 .rv{opacity:0;transform:translateY(18px);transition:opacity .8s,transform .8s}.rv.in{opacity:1;transform:none}.frame.rv.in{transition-delay:.08s}
@@ -113,9 +117,11 @@ footer{padding:50px 22px 90px;font-size:1rem}
   #hero .names{font-size:clamp(3rem,15vw,4.4rem)!important}
   .person .nm{font-size:clamp(2.45rem,11vw,3.05rem)}
   h2{font-size:2.8rem}
-  .rsvp-heading{font-size:2.5rem;margin-left:0}
+  .rsvp-heading{font-size:2.15rem;margin-left:0}
   #ayat .frame{padding:75px 30px}
   #rsvp .frame{padding-top:120px}
+  #acara .rv>p{margin-bottom:1px}
+  #acara .event-date{position:relative;top:-4px;margin-bottom:-4px}
   .date{font-size:1rem;letter-spacing:.1em}
   .count{gap:6px}
   .count div{padding:8px 2px}
@@ -125,6 +131,12 @@ footer{padding:50px 22px 90px;font-size:1rem}
   .venue{overflow-wrap:anywhere}
   .gal div{flex-basis:calc(50% - 8px)}
   footer{padding:40px 14px 80px}
+}
+@media(min-width:521px){
+  #ayat .frame{padding-top:80px}
+  #rsvp .frame{padding-top:120px}
+  .rsvp-heading{font-size:2.9rem}
+  .credit{font-size:.9rem}
 }
 </style>
 </head>
@@ -143,13 +155,12 @@ footer{padding:50px 22px 90px;font-size:1rem}
   <div class="small">THE WEDDING OF</div>
   <div class="mono script">T<span style="color:var(--gold)">&amp;</span>R</div>
   <div class="names script">Tara <span class="amp">&amp;</span> Riza</div>
-  <div class="date">SENIN, 30 NOVEMBER 2026</div>
   <div class="guest">Masukkan nomor telepon Anda.
     <input id="gname" type="tel" inputmode="tel" placeholder="Contoh: 0812 3456 7001" aria-label="Nomor telepon" maxlength="18" autocomplete="off">
   </div>
   <div class="err" id="err" role="alert"></div>
-  <p style="font-size:1rem;max-width:480px;margin:6px auto 10px">Mohon maaf atas keterbatasan ruang yang tersedia. Undangan ini bersifat personal dan hanya berlaku untuk satu orang penerima undangan.</p>
-  <button class="btn" id="openBtn">Buka Undangan</button>
+  <p style="font-size:1.1rem;max-width:480px;margin:7px auto 10px">Mohon maaf atas keterbatasan ruang yang tersedia, undangan ini bersifat personal dan hanya berlaku untuk satu orang penerima undangan.</p>
+  <button class="btn" id="openBtn" style="margin-top:0">Buka Undangan</button>
 </div>
 
 <button id="music" aria-label="Putar atau hentikan musik" title="Musik">♪</button>
@@ -161,8 +172,9 @@ footer{padding:50px 22px 90px;font-size:1rem}
     <p class="ayat">Assalamu’alaikum Warahmatullahi Wabarakatuh</p>
     <div class="small">THE WEDDING OF</div>
     <div class="names script" style="font-size:4.4rem">Tara <span class="amp">&amp;</span> Riza</div>
-    <div class="date">SENIN, 30 NOVEMBER 2026</div>
+    <div class="date">SENIN, <span style="font-size: 1.5rem;">30</span> NOVEMBER <span style="font-size: 1.5rem;">2026</span></div>
     <p id="hello" class="guest" style="margin-top:14px"></p>
+    <p class="guest-note">Mohon maaf apabila ada kesalahan pada penulisan Nama / Gelar</p>
     <div class="count" id="count" aria-live="off">
       <div><b id="d">0</b><span>Hari</span></div><div><b id="h">0</b><span>Jam</span></div><div><b id="m">0</b><span>Menit</span></div><div><b id="s">0</b><span>Detik</span></div>
     </div>
@@ -174,13 +186,13 @@ footer{padding:50px 22px 90px;font-size:1rem}
     <svg class="art tl-" viewBox="0 0 220 220" aria-hidden="true"><use href="#corner"/></svg><svg class="art br-" viewBox="0 0 220 220" aria-hidden="true"><use href="#corner"/></svg>
     <span class="orn">❖ ❖ ❖</span>
     <p class="ayat">Dan di antara tanda-tanda (kebesaran)-Nya ialah diciptakan-Nya pasangan hidup dari jenismu sendiri, supaya kamu merasa tenteram kepadanya, dan dijadikan-Nya di antaramu rasa kasih dan sayang. Sesungguhnya yang demikian itu menjadi tanda-tanda (kebesaran Allah) bagi kaum yang berpikir.</p>
-    <p class="small">(Q.S Ar-Rum : 21)</p>
+    <p class="small">(Q.S Ar-Rum : <span style="font-size: 1.3rem;">21</span>)</p>
   </div>
 </section>
 
 <section id="mempelai">
   <div class="rv">
-    <h2>Mempelai</h2>
+    <h2></h2>
     <p>Maha Suci Allah SWT yang telah menciptakan makhluk-Nya berpasang-pasangan. Ya Allah, perkenankanlah kami menikahkan putra-putri kami:</p>
     <div class="person"><div class="nm script">Tara Adhita Safira Safardan</div>
       <p>Putri pertama dari</p><p><b>Foe Min Fong &amp; Dolin Yudhit Pramadita</b></p></div>
@@ -194,11 +206,11 @@ footer{padding:50px 22px 90px;font-size:1rem}
   <div class="rv">
     <h2 class="rv">Waktu &amp; Tempat</h2>
     <p>Insya Allah akan diselenggarakan pada:</p>
-    <div class="big">30</div><div class="date event-date">SENIN · NOVEMBER 2026</div>
+    <div class="date event-date">SENIN, <b style="font-size: 3rem;color:var(--maroon)">30</b> NOVEMBER <span style="font-size: 1.5rem;">2026</span></div>
     <div class="ev">
-      <div class="card"><h3 class="script" style="font-size:2rem">Akad &amp; Syukuran</h3><p class="event-time"><span>Pukul</span><b>10.00 WIB</b></p></div>
+      <div class="card"><h3 class="script" style="font-size:2rem">Akad &amp; Syukuran</h3><p class="event-time"><span>Pukul</span><b style="font-size: 1.5rem;">10.00 WIB</b></p></div>
     </div>
-    <div class="frame dress-code"><h3 class="script" style="font-size: 2rem">Dress Code</h3><p class="event-time">Mohon tidak memakai warna gelap terutama hitam dan maroon.</p></div>
+    <div class="frame dress-code"><h3 class="script" style="font-size: 2rem">Dress Code</h3><p class="event-time">Mohon tidak memakai pakaian berwarna gelap, terutama hitam dan maroon.</p></div>
     <div class="venue"><b style="font-size: 2rem">Kampung Kari 88</b><p style="font-size: 1rem;padding: 0;">Jl. DR. Setiabudi Jl. Kp. Bulak No.88, RT.004/RW.003, Pd Kacang Tim., Kec. Pd Aren, Kota Tangerang Selatan, Banten 15226</p></div>
     <div class="acts">
       <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Kampung+Kari+88+Tangerang+Selatan">Buka Peta</a>
@@ -241,6 +253,7 @@ footer{padding:50px 22px 90px;font-size:1rem}
   <p class="ayat">Wassalamu’alaikum Warahmatullahi Wabarakatuh</p>
   <div class="names script" style="font-size:3rem">Tara &amp; Riza</div>
   <span class="orn">❖</span>
+  <p class="credit">Designed &amp; developed by:<br><a href="https://www.linkedin.com/in/zoelkiflie-ahmadhani-209a44426" target="_blank" rel="noopener">Zoelkiflie Ahmadhani</a> · Instagram <a href="https://www.instagram.com/zoelkie" target="_blank" rel="noopener">@zoelkie</a></p>
 </footer>
 
 <script>
@@ -297,7 +310,7 @@ footer{padding:50px 22px 90px;font-size:1rem}
   
   // Daftar tamu: nomor (format 08...) => nama
   // const GUESTS={'081234567001':'Bapak Budi Santoso','081234567002':'Ibu Siti Rahmawati','081234567003':'Saudara Andi Pratama'};
-  const ACCOUNTS=[{bank:'BCA',no:'8870593741',an:'Tara Adhita Safira Safardan'}];
+  const ACCOUNTS=[{bank:'blu by BCA Digital',no:'004058599908',an:'Tara Adhita Safira Safardan'}];
 
   function norm(v){let d=String(v).replace(/\D/g,'');if(d.indexOf('62')===0)d='0'+d.slice(2);return d}
 
@@ -369,7 +382,7 @@ footer{padding:50px 22px 90px;font-size:1rem}
   tick();setInterval(tick,1000);
 
   // Musik Memories piano version dari berkas lokal.
-  const musicAudio=new Audio('src/Nostalgic%20One%20Piece%20Ending%20Theme%20-%20Memories%E3%80%90%20Piano%20%E3%83%94%E3%82%A2%E3%83%8E%20%E3%80%91Episode%20808.mp3');
+  const musicAudio=new Audio('src/Pasilyo.mp3');
   musicAudio.loop=true;
   musicAudio.volume=.7;
   let playing=false;
