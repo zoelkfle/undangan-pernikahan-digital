@@ -94,6 +94,10 @@ form{display:grid;gap:12px;text-align:left;margin-top:18px}
 label{font-size:.95rem;font-weight:600}
 input,textarea,select{width:100%;font:inherit;font-size:1rem;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink)}
 .wishes{margin-top:26px;display:grid;gap:10px;text-align:left}
+.wishes-nav{display:flex;gap:8px;justify-content:center;margin-top:14px}
+.wishes-nav .btn{width:34px;min-width:34px;height:34px;padding:0;border-color:var(--gold);border-radius:50%;color:var(--gold)!important;font-size:1.35rem;line-height:1}
+.wishes-nav .btn:hover:not(:disabled),.wishes-nav .btn:focus-visible{background:var(--gold);color:var(--bg)!important}
+.wishes-nav .btn:disabled{opacity:.35}
 .wish{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--maroon);border-radius:8px;padding:10px 14px}
 .wish b{color:var(--maroon)}.wish small{display:block;color:var(--gold);font-size:1rem}.wish p{margin:4px 0 0;font-size:1.08rem}
 .msg{min-height:1.4em;font-weight:600;color:var(--maroon);text-align:center}
@@ -240,12 +244,17 @@ footer{padding:50px 22px 90px;font-size:1rem}
     <form id="rf">
       <div><label for="n">Nama</label><input id="n" required maxlength="40" readonly aria-readonly="true"></div>
       <div><label for="a">Kehadiran</label>
-        <select id="a"><option>Hadir</option><option>Tidak hadir</option></select></div>
+        <select id="a" required><option value="" disabled selected>Hadir / Tidak Hadir</option><option>Hadir</option><option>Tidak Hadir</option></select></div>
       <div><label for="w">Ucapan &amp; doa</label><textarea id="w" rows="3" maxlength="240" required></textarea></div>
       <button class="btn" type="submit">Kirim Ucapan</button>
       <div class="msg" id="msg" role="status"></div>
     </form>
     <div class="wishes" id="wishes"></div>
+    <div class="wishes-nav" id="wishesNav" hidden>
+      <button class="btn ghost" id="wishesPrev" type="button" aria-label="6 ucapan lebih baru">&lsaquo;</button>
+      <button class="btn ghost" id="wishesPage" type="button" aria-label="Halaman ucapan saat ini">1</button>
+      <button class="btn ghost" id="wishesNext" type="button" aria-label="6 ucapan lebih lama">&rsaquo;</button>
+    </div>
   </div>
 </section>
 
@@ -286,7 +295,7 @@ footer{padding:50px 22px 90px;font-size:1rem}
 <script type="module">
   // Impor modul Firebase dari CDN
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
-  import { getFirestore, collection, addDoc, onSnapshot, query, orderBy, serverTimestamp, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
+  import { getFirestore, collection, addDoc, onSnapshot, query, orderBy, serverTimestamp, doc, getDoc, limit, startAfter, getDocs } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
 
   // 1. MASUKKAN FIREBASE CONFIG DI SINI
   const firebaseConfig = {
@@ -410,21 +419,70 @@ footer{padding:50px 22px 90px;font-size:1rem}
   // ==========================================
   function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 
-  // 1. Membaca data secara Real-Time dari Firestore
-  const q = query(wishesRef, orderBy("timestamp", "desc")); // Urutkan ucapan terbaru di atas
-  onSnapshot(q, (snapshot) => {
-    let html = "";
-    snapshot.forEach((doc) => {
-      let data = doc.data();
-      html += '<div class="wish"><b>'+esc(data.n)+'</b><small>'+esc(data.a)+'</small><p>'+esc(data.w)+'</p></div>';
-    });
-    
-    // Tampilkan pesan kosong jika belum ada data
-    if(html === "") {
-      html = "<p style='text-align:center;font-size:0.95rem;color:var(--gold);'>Belum ada ucapan. Jadilah yang pertama memberikan doa restu!</p>";
+  // 1. Muat ucapan per halaman agar hanya 15 card dirender sekaligus.
+  const wishesNav=$('wishesNav');
+  const wishesPrev=$('wishesPrev');
+  const wishesPage=$('wishesPage');
+  const wishesNext=$('wishesNext');
+  const pageSize=6;
+  let wishPages=[];
+  let currentWishPage=0;
+  let loadingWishPage=false;
+
+  function renderWishes(){
+    let pageDocs=wishPages[currentWishPage]||[];
+    if(!pageDocs.length){
+      $('wishes').innerHTML="<p style='text-align:center;font-size:0.95rem;color:var(--gold);'>Belum ada ucapan. Jadilah yang pertama memberikan doa restu!</p>";
+      wishesNav.hidden=true;
+      return;
     }
-    
-    $('wishes').innerHTML = html;
+    $('wishes').innerHTML=pageDocs.map(function(wishDoc){
+      let data=wishDoc.data();
+      return '<div class="wish"><b>'+esc(data.n)+'</b><small>'+esc(data.a)+'</small><p>'+esc(data.w)+'</p></div>';
+    }).join('');
+    wishesNav.hidden=false;
+    wishesPage.textContent=String(currentWishPage+1);
+    wishesPrev.disabled=currentWishPage===0;
+    wishesNext.disabled=pageDocs.length<pageSize;
+  }
+
+  async function loadWishPage(pageIndex){
+    if(loadingWishPage||pageIndex<0)return;
+    if(wishPages[pageIndex]){
+      currentWishPage=pageIndex;
+      renderWishes();
+      return;
+    }
+    let previousPage=wishPages[pageIndex-1];
+    if(!previousPage||previousPage.length<pageSize)return;
+    loadingWishPage=true;
+    wishesNext.disabled=true;
+    try{
+      let lastDoc=previousPage[previousPage.length-1];
+      let olderQuery=query(wishesRef,orderBy("timestamp","desc"),startAfter(lastDoc),limit(pageSize));
+      let snapshot=await getDocs(olderQuery);
+      wishPages[pageIndex]=snapshot.docs;
+      currentWishPage=pageIndex;
+      renderWishes();
+    }catch(error){
+      console.error("Error memuat halaman ucapan: ",error);
+    }finally{
+      loadingWishPage=false;
+      renderWishes();
+    }
+  }
+
+  wishesPrev.onclick=function(){loadWishPage(currentWishPage-1)};
+  wishesNext.onclick=function(){loadWishPage(currentWishPage+1)};
+  let latestQuery=query(wishesRef,orderBy("timestamp","desc"),limit(pageSize));
+  onSnapshot(latestQuery,(snapshot)=>{
+    wishPages[0]=snapshot.docs;
+    if(currentWishPage===0)renderWishes();
+    else wishesPrev.disabled=false;
+  },(error)=>{
+    console.error("Error memuat ucapan: ",error);
+    $('wishes').innerHTML="<p style='text-align:center;font-size:0.95rem;color:var(--gold);'>Ucapan belum dapat dimuat. Silakan coba lagi.</p>";
+    wishesNav.hidden=false;
   });
 
   // 2. Mengirim data ke Firestore saat tombol disubmit
